@@ -17,5 +17,5 @@
 - `train`
 - -> todo
 
-## frotend
+## frontend
 - todo
