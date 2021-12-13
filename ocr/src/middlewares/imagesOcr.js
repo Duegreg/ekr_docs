@@ -1,6 +1,6 @@
 import {exec} from "child_process"
 
-const recognize = (image_input, command, debug = true) => {
+const recognize = (image_input, command, debug = false) => {
     const input = (typeof image_input === 'string') ? image_input : 'stdin';
     const tesseract_command = ['tesseract', input, command].join(' ');
 
@@ -28,7 +28,6 @@ const recognize = (image_input, command, debug = true) => {
 
 
 export default async (req, res, next) => {
-    console.log('ocr1')
     const pdfs = []
     for(let i = 0; i < res.locals.pdfs.length; i++) {
         const { images, ...rest } = res.locals.pdfs[i];
@@ -44,7 +43,6 @@ export default async (req, res, next) => {
 
         pdfs.push({ ...rest, _text: textPages.join('\n\n\n\n')});
     }
-    console.log('ocr2')
     res.locals.results = pdfs;
     next();
 }

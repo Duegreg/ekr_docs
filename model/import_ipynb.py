@@ -1,4 +1,4 @@
-import io, os, sys, types
+import io, os, sys, types, shutil
 from IPython import get_ipython
 from nbformat import read
 from IPython.core.interactiveshell import InteractiveShell
@@ -68,6 +68,7 @@ class NotebookLoader(object):
                         print(e)
         finally:
             exec(f'os.chdir("{cur_dir}")\n', mod.__dict__)
+            # shutil.rmtree(temp_dir) clean temp dir
             self.shell.user_ns = save_user_ns
         return mod
 

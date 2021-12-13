@@ -2,7 +2,7 @@ import import_ipynb
 from flask import Flask
 from flask import request
 # noinspection PyUnresolvedReferences
-from notebook import init, predict
+from model import init, predict
 
 app = Flask(__name__)
 
