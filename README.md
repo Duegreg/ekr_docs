@@ -1,21 +1,23 @@
 # ekr_docs
 
-## backend
+## Services:
+
+### backend
 - `upload pdfs`
 -  -> store pdf file in AWS S3
 -  -> exract text with Tesseract OCR 
--  -> exract information with [model](https://github.com/Duegreg/ekr_docs#model)
+-  -> exract information with [model service](##model)
 -  -> store text data in Elastic Search
 - `search`
-- -> return pdf text data for the given query (match/levenhstein/regex/...)
+- -> return pdf text data by query (match/levenhstein/regex/...)
 - `download`
 - -> download pdf file by filename
 
-## model
+### model
 - `predict`
 - -> batch text information extraction with CRFSuite ML model
 - `train`
 - -> todo
 
-## frontend
-- todo
+### frontend
+- in progress
