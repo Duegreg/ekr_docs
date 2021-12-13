@@ -28,6 +28,7 @@ const recognize = (image_input, command, debug = true) => {
 
 
 export default async (req, res, next) => {
+    console.log('ocr1')
     const pdfs = []
     for(let i = 0; i < res.locals.pdfs.length; i++) {
         const { images, ...rest } = res.locals.pdfs[i];
@@ -41,8 +42,9 @@ export default async (req, res, next) => {
             }
         }
 
-        pdfs.push({ ...rest, ocrText: textPages.join('\n\n\n\n')});
+        pdfs.push({ ...rest, _text: textPages.join('\n\n\n\n')});
     }
-    res.locals.pdfs = pdfs;
+    console.log('ocr2')
+    res.locals.results = pdfs;
     next();
 }

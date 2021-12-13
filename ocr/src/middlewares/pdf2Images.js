@@ -22,6 +22,7 @@ const readFiles = (dir) => {
 }
 
 export default async (req, res, next) => {
+    console.log('pdf1')
     const pdfs = []
     for(const { buffer, ...rest } of req.files) {
         const temp_dir = Date.now().toString(36) + Math.random().toString(36);
@@ -43,6 +44,7 @@ export default async (req, res, next) => {
         }
         removeDir(path);
     }
+    console.log('pdf2')
     res.locals.pdfs = pdfs;
     next();
 }
