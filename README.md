@@ -4,7 +4,7 @@
 - `upload pdfs`
 -  -> store pdf file in AWS S3
 -  -> exract text with Tesseract OCR 
--  -> exract information with _model_
+-  -> exract information with [model](https://github.com/Duegreg/ekr_docs#model)
 -  -> store text data in Elastic Search
 - `search`
 - -> return pdf text data for the given query (match/levenhstein/regex/...)
