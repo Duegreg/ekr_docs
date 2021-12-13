@@ -1,10 +1,10 @@
 import Axios from 'axios'
 
-const ocrClient = Axios.create({ baseURL: 'http://localhost:5000',  timeout: 5*60*1000})
+const taggerModel = Axios.create({baseURL: 'http://localhost:5000', timeout: 5 * 60 * 1000})
 
 export default async (req, res, next) => {
 
-    const { data: results } = await ocrClient.post(
+    const {data: results} = await taggerModel.post(
         '/predict',
         res.locals.results.map(({_text}) => _text),
     )

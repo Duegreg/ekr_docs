@@ -1,6 +1,7 @@
 import client from '../elasticClient.js'
 
 export default async (req, res, next) => {
+
     const searchParams = req.body
 
     let results
@@ -11,20 +12,20 @@ export default async (req, res, next) => {
         })
     } else {
         results = await client.search({
-            index: 'test_docs', // otherwise all indexes, but does not work with match al
+            index: 'ekrdocs', // otherwise all indexes, but does not work with match al
             body: {
-                query: searchParams?.query || { match_all: {} } // { "match": { "text": "igazán nem" } }
+                query: searchParams?.query || {match_all: {}} // { "match": { "_text": "This will match" } }
             },
             size: 20,
             scroll: '1h'
         })
     }
 
-    const { body: { _scroll_id, took, hits } } = results
+    const {body: {_scroll_id, took, hits}} = results
     res.locals.results = {
         _scroll_id,
         took,
-        hits: hits.hits.map(({ _score, _source: { _text, ...rest }}) => ({_score, ...rest}))
+        hits: hits.hits.map(({_score, _source: {_text, ...rest}}) => ({_score, ...rest}))
     }
 
     next()

@@ -28,9 +28,10 @@ const recognize = (image_input, command, debug = false) => {
 
 
 export default async (req, res, next) => {
+
     const pdfs = []
-    for(let i = 0; i < res.locals.pdfs.length; i++) {
-        const { images, ...rest } = res.locals.pdfs[i];
+    for (let i = 0; i < res.locals.pdfs.length; i++) {
+        const {images, ...rest} = res.locals.pdfs[i];
 
         let textPages = [];
         for (const image of images) {
@@ -41,8 +42,10 @@ export default async (req, res, next) => {
             }
         }
 
-        pdfs.push({ ...rest, _text: textPages.join('\n\n\n\n')});
+        pdfs.push({...rest, _text: textPages.join('\n\n\n\n')});
     }
+
     res.locals.results = pdfs;
+
     next();
 }

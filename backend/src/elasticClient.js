@@ -1,8 +1,8 @@
-import { Client } from '@elastic/elasticsearch'
+import {Client} from '@elastic/elasticsearch'
 
 export default new Client({
     cloud: {
-        id: process.env.ELASTIC_ID ||'ELASTIC_ID',
+        id: process.env.ELASTIC_ID || 'ELASTIC_ID',
     },
     auth: {
         username: process.env.ELASTIC_USERNAME || 'ELASTIC_USERNAME',

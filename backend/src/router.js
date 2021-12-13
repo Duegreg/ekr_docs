@@ -13,9 +13,10 @@ const router = Router();
 
 
 router.post('/upload',
-    multer({ storage: multer.memoryStorage() }).array('files'),
+    multer({storage: multer.memoryStorage()}).array('files'),
     async (_, res, next) => {
         res.sendStatus(200) // early response
+        // handle SSE?
         next()
     },
     uuid,
@@ -25,7 +26,7 @@ router.post('/upload',
     textTagger,
     postElastic,
     async (req, res, next) => {
-        // req.query.notifiy => SSE
+        // if(req.query.notifiy) => SSE
     },
 );
 
@@ -41,9 +42,9 @@ router.get('/download/:filename',
     async (_, res) => {
         res.contentType('application/octet-stream')
         res.status(200)
-        res.locals.stream.on("data", (chunk) => res.write(chunk));
-        res.locals.stream.once("end", () => { res.end(); });
-        res.locals.stream.once("error", () => { res.end();});
+        res.locals.stream.on("data", chunk => res.write(chunk));
+        res.locals.stream.once("end", () => res.end());
+        res.locals.stream.once("error", () => res.end());
     },
 );
 
