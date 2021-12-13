@@ -1,5 +1,8 @@
 # ekr_docs
 
+ML based contract infomartion extraction for [EKR documents](https://ekr.gov.hu/ekr-szerzodestar/hu/szerzodesLista)
+with storage and search functions
+
 ## Services:
 ___
 ### backend
