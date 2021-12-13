@@ -1,19 +1,27 @@
 import {Router} from 'express';
 import multer from 'multer'
-import postElastic from "./middlewares/postElastic.js";
-import searchElastic from "./middlewares/searchElastic.js";
-import ocr from "./middlewares/ocr.js";
+import imagesOcr from "./middlewares/imagesOcr.js";
+import pdf2Images from "./middlewares/pdf2Images.js";
 import uuid from "./middlewares/uuid.js";
+import searchElastic from "./middlewares/searchElastic.js";
+import postElastic from "./middlewares/postElastic.js";
+import textTagger from "./middlewares/textTagger.js";
 
 const router = Router();
 
+
 router.post('/upload',
     multer({ storage: multer.memoryStorage() }).array('files'),
-    //uuid,
-    ocr,
+    async (req, res, next) => {
+        res.sendStatus(200)
+    },
+    uuid,
+    pdf2Images,
+    imagesOcr,
+    textTagger,
     postElastic,
-    async (_, res) => {
-        res.status(201);
+    async (req, res, next) => {
+        // SSE?
     },
 );
 
@@ -24,14 +32,7 @@ router.post('/search',
     },
 );
 
-router.get('/',
-    async (_, res,next) => {
-        res.status(200).send("ok")
-        next()
-    },
-    async (_, res) => {
-        console.log("haha")
-    },
-);
+
+//router.get('/download')
 
 export default router;
