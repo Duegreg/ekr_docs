@@ -1,7 +1,8 @@
 # ekr_docs
 
-ML based contract infomartion extraction for [EKR documents](https://ekr.gov.hu/ekr-szerzodestar/hu/szerzodesLista)
-with storage and search functions
+ML based contract infomartion extraction with storage and search functions.
+
+Currently pretrained for Hungarian [EKR documents](https://ekr.gov.hu/ekr-szerzodestar/hu/szerzodesLista) only.
 
 ## Services:
 ___
