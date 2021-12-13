@@ -2,7 +2,7 @@
 
 ML based contract infomartion extraction with storage and search functions.
 
-Currently [pretrained](https://github.com/Duegreg/ekr_docs/blob/main/model/model.ipynb) for Hungarian [EKR documents](https://ekr.gov.hu/ekr-szerzodestar/hu/szerzodesLista), but you can use your own model.
+Currently [pretrained](https://github.com/Duegreg/ekr_docs/blob/main/model/model.ipynb) for Hungarian [EKR documents](https://ekr.gov.hu/ekr-szerzodestar/hu/szerzodesLista), but you can replace it with your own custom model.
 
 ## Services:
 ___
