@@ -1,7 +1,7 @@
 # ekr_docs
 
 ## Services:
-
+___
 ### backend
 - `upload pdfs`
 -  -> store pdf file in AWS S3
@@ -13,11 +13,28 @@
 - `download`
 - -> download pdf file by filename
 
+Technologies: JavaScript, Express.js + Pdf-Poppler, Tesseract-OCR, Elastic Search, AWS S3
+___
 ### model
 - `predict`
 - -> batch text information extraction with CRFSuite ML model
 - `train`
 - -> todo
 
+Can run .py and .ipynb model files
+
+- tried models ([dataset](https://www.kaggle.com/miklosgergely/ekr-docs)):
+  - Embedding + bi-LSTM
+  - Embedding + bi-LSTM + LSTM
+  - Embedding + bi-LSTM + LSTM + CRF
+  - Bert
+  - XGBoost
+  - CRFSuite
+
+Technologies: Python, Flask + Keras, PyTorch, Bert, XGboost, PyCRFSuite
+___
 ### frontend
 - in progress
+
+Technologies: JavaScript, React
+___
